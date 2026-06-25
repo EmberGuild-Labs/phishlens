@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhishLens — Email Header Analyzer</title>
+    <title>PhishLens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+
+    <div class="bg-grid"></div>
+
     <div class="container">
         <header>
-            <div class="logo">
-                <span class="logo-icon">[#]</span>
-                <h1>PHISHLENS</h1>
-            </div>
-            <p class="tagline">// email header forensics and authentication analysis</p>
-            <div class="status-line">STATUS: READY | CHECKS: SPF / DKIM / DMARC | MODE: PASSIVE</div>
+            <div class="tool-badge">sentinelkit / header-analysis</div>
+            <h1 class="title">Phish<span class="accent">Lens</span></h1>
+            <p class="subtitle">Email header forensics. Paste raw headers, get delivery chain analysis and phishing indicators.</p>
         </header>
 
         <div class="how-to">
@@ -35,19 +38,21 @@
                     rows="10"
                     spellcheck="false"
                 ></textarea>
-                <button type="submit" id="analyze-btn">ANALYZE</button>
+                <button type="submit" id="analyze-btn">
+                    <span>Analyze</span>
+                    <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
             </form>
         </div>
 
         <div id="loading" class="loading hidden">
             <div class="spinner"></div>
-            <p>PARSING HEADERS...</p>
+            <p>Parsing headers</p>
         </div>
 
         <div id="error-msg" class="error-msg hidden"></div>
 
         <div id="results" class="results hidden">
-
             <div class="section" id="risk-section">
                 <h2>Risk Assessment</h2>
                 <div id="risk-display"></div>
@@ -59,12 +64,12 @@
             </div>
 
             <div class="section" id="auth-section">
-                <h2>Authentication Results</h2>
+                <h2>Authentication</h2>
                 <div id="auth-display"></div>
             </div>
 
             <div class="section" id="findings-section">
-                <h2>Phishing Indicators</h2>
+                <h2>Indicators</h2>
                 <div id="findings-display"></div>
             </div>
 
@@ -72,11 +77,11 @@
                 <h2>Delivery Chain</h2>
                 <div id="chain-display"></div>
             </div>
-
         </div>
 
         <footer>
-            <p><a href="https://sentinelkit.proxnode.xyz">SENTINELKIT</a> // reconnaissance toolkit</p>
+            <span class="footer-logo">SENTINELKIT</span>
+            <span class="footer-link"><a href="https://sentinelkit.proxnode.xyz">sentinelkit.proxnode.xyz</a></span>
         </footer>
     </div>
 
