@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishLens — Email Header Analyzer</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🔍</span>
+                <h1>PhishLens</h1>
+            </div>
+            <p class="tagline">Paste raw email headers. Get the full delivery chain, auth results, and phishing indicators.</p>
+        </header>
+
+        <div class="how-to">
+            <button class="how-to-toggle" id="how-to-toggle">How to get raw headers</button>
+            <div class="how-to-content hidden" id="how-to-content">
+                <p><strong>Gmail:</strong> Open email → ⋮ menu → "Show original" → copy everything above the body</p>
+                <p><strong>Outlook:</strong> Open email → ⋮ menu → View → "View message source"</p>
+                <p><strong>Apple Mail:</strong> View → Message → All Headers (⌘⇧H)</p>
+                <p><strong>Thunderbird:</strong> View → Message Source (Ctrl+U)</p>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <form id="analyze-form">
+                <textarea
+                    id="headers-input"
+                    placeholder="Paste raw email headers here..."
+                    rows="10"
+                    spellcheck="false"
+                ></textarea>
+                <button type="submit" id="analyze-btn">Analyze Headers</button>
+            </form>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing headers...</p>
+        </div>
+
+        <div id="error-msg" class="error-msg hidden"></div>
+
+        <div id="results" class="results hidden">
+
+            <div class="section" id="risk-section">
+                <h2>Risk Assessment</h2>
+                <div id="risk-display"></div>
+            </div>
+
+            <div class="section" id="summary-section">
+                <h2>Email Summary</h2>
+                <div id="summary-display"></div>
+            </div>
+
+            <div class="section" id="auth-section">
+                <h2>Authentication Results</h2>
+                <div id="auth-display"></div>
+            </div>
+
+            <div class="section" id="findings-section">
+                <h2>Phishing Indicators</h2>
+                <div id="findings-display"></div>
+            </div>
+
+            <div class="section" id="chain-section">
+                <h2>Delivery Chain</h2>
+                <div id="chain-display"></div>
+            </div>
+
+        </div>
+
+        <footer>
+            <p>Part of <a href="https://sentinelkit.proxnode.xyz">SentinelKit</a> — safe recon tools for the web.</p>
+        </footer>
+    </div>
+
+    <script src="/static/main.js"></script>
+</body>
+</html>
